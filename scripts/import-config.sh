@@ -59,7 +59,7 @@ g config status.showUntrackedFiles no
 log "Backing up submodule directories..."
 for f in $(egrep "path\s*=\s*" .gitmodules | sed -E "s|path\s*=\s*||g")
 do
-	if [ -e "$f" ]
+	if [ -e "$f" ] ; then
 		backup_file "$f"
 	fi
 done
