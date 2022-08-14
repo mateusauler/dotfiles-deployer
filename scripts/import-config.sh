@@ -2,12 +2,13 @@
 
 cfg_dir=$HOME/.cfg
 bkp_dir=.config-backup_$(date +"%Y-%m-%d_%H-%M-%S")
+origin=$(realpath $(dirname -- "$0")/..)
 
 function g {
 	/usr/bin/git --git-dir=$cfg_dir --work-tree=$HOME $@
 }
 
-cd $(dirname "$0")/..
+cd $origin
 pushd $HOME > /dev/null
 
 mkdir -p $bkp_dir

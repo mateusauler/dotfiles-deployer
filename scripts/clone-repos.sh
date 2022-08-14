@@ -1,6 +1,7 @@
 #!/bin/bash
 
 base_address="https://github.com/mateusauler"
+origin=$(realpath $(dirname -- "$0")/..)
 
 function clone {
 	dest=${2:-repos/$1}
@@ -13,8 +14,6 @@ function clone {
 		git clone $addr $dest
 	fi
 }
-
-origin=$(pwd)
 
 pushd $HOME > /dev/null
 

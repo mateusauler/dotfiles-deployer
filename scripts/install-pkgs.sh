@@ -1,3 +1,4 @@
 #!/bin/bash
 
-cat res/pkgs | paru -S --needed --noconfirm -
+origin=$(realpath $(dirname -- "$0")/..)
+cat $origin/res/pkgs | paru -S --needed --noconfirm -

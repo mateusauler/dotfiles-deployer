@@ -1,6 +1,6 @@
 #!/bin/bash
 
-origin=$(pwd)
+origin=$(realpath $(dirname -- "$0")/..)
 
 pushd $HOME/.scripts > /dev/null
 chmod +x *.sh
