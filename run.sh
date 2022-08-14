@@ -13,7 +13,7 @@ sudo pacman -S --needed --noconfirm git
 mkdir -p $dirname
 cd $dirname
 
-if [ -e $repo_name/.git ] ; then
+if [ -e .git ] ; then
 	git pull
 else
 	git clone https://github.com/mateusauler/$repo_name $dirname
