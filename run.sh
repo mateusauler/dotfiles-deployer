@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$USER" == "root" ] ; then
-	echo "You shouldn't run this script as root."
+	echo "You shouldn't run this script as root." 1>&2
 	exit 1
 fi
 
