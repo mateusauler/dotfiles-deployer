@@ -37,6 +37,12 @@ if [ -d $cfg_dir ]; then
 	mv $cfg_dir $bkp_dir
 fi
 
+log "Backing up submodule directories..."
+for f in $(curl https://raw.githubusercontent.com/mateusauler/dotfiles/master/.gitmodules | egrep "path\s*=\s*" | sed -E "s|path\s*=\s*||g")
+do
+	[ -e "$f" ] && backup_file "$f"
+done
+
 log "Cloning dotfiles repository..."
 git clone --bare $base_address/dotfiles.git $cfg_dir
 g checkout 2> /dev/null
@@ -55,14 +61,6 @@ else
 fi
 
 g config status.showUntrackedFiles no
-
-log "Backing up submodule directories..."
-for f in $(egrep "path\s*=\s*" .gitmodules | sed -E "s|path\s*=\s*||g")
-do
-	if [ -e "$f" ] ; then
-		backup_file "$f"
-	fi
-done
 
 log "Cloning submodules..."
 g submodule update --init --recursive
