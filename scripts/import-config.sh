@@ -38,6 +38,13 @@ echo "Checking out config..."
 g checkout
 g config status.showUntrackedFiles no
 
+for f in $(egrep "path\s*=\s*" .gitmodules | sed -E "s|path\s*=\s*||g")
+do
+	parent_dir=$(dirname $f | sed "s|^|$HOME/$bkp_dir/|")
+	mkdir -p $parent_dir
+	mv $f $parent_dir
+done
+
 g submodule update --init --recursive
 
 rm -f README.md
