@@ -9,7 +9,7 @@ function clone {
 	if [ -e $dest/.git ] ; then
 		pushd $dest > /dev/null
 		git pull
-		popd
+		popd > /dev/null
 	else
 		git clone $addr $dest
 	fi
