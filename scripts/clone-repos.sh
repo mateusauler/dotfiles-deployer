@@ -1,8 +1,10 @@
 #!/bin/bash
 
+base_address="https://github.com/mateusauler"
+
 function clone {
 	dest=${2:-repos/$1}
-	git clone $1 $dest
+	git clone $base_address/$1 $dest
 }
 
 origin=$(pwd)
