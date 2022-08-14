@@ -6,18 +6,17 @@ if [ "$USER" == "root" ] ; then
 fi
 
 repo_name=dotfiles-deployer
+dirname=$HOME/repos/$repo_name
 
 sudo pacman -S --needed --noconfirm git
 
-mkdir -p $HOME/repos
-cd $HOME/repos
+mkdir -p $dirname
+cd $dirname
 
 if [ -e $repo_name/.git ] ; then
-	cd $repo_name
 	git pull
 else
-	git clone https://github.com/mateusauler/$repo_name
-	cd $repo_name
+	git clone https://github.com/mateusauler/$repo_name $dirname
 fi
 
 chmod +x scripts/import-config.sh
