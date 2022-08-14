@@ -4,9 +4,8 @@ cfg_dir=${XDG_CONFIG_HOME:=~/.config}/nvim
 
 if [ -e $cfg_dir/.git ] ;
 then
-	pushd $cfg_dir > /dev/null
+	cd $cfg_dir
 	git pull
-	popd > /dev/null
 else
 	if [ -e $cfg_dir ] ;
 	then
