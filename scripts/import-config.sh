@@ -58,7 +58,8 @@ exit 1
 
 function cd_and_install {
 	pushd $1 > /dev/null
-	sudo make install clean
+	sudo make install
+	sudo make clean
 	popd > /dev/null
 }
 
