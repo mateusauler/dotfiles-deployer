@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ command -v paru ] && exit
+$(command -v paru &> /dev/null) && exit
 
 dir=$HOME/paru-bin
 
