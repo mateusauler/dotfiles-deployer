@@ -62,10 +62,10 @@ function cd_and_install {
 	popd > /dev/null
 }
 
-cd_and_install $HOME/repos/dwm
-cd_and_install $HOME/repos/st
-cd_and_install $HOME/repos/dmenu
-cd_and_install $HOME/repos/slock
+for r in "dwm st dmenu slock"
+do
+	cd_and_install $HOME/repos/$r
+done
 
 sudo chsh -s $(which fish) $USER
 sudo chsh -s $(which fish)
