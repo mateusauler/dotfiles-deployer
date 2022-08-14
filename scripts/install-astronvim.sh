@@ -4,7 +4,6 @@ cfg_dir=${XDG_CONFIG_HOME:=~/.config}/nvim
 
 paru -S --needed neovim astronvim neovide nerd-fonts-complete lazygit npm
 paru -S --asdeps --needed python-neovim
-paru -Rns --noconfirm powerline-vim powerline
 
 if [ -e $cfg_dir/.git ] ;
 then
