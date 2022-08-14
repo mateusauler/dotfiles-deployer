@@ -32,7 +32,7 @@ else
 		mkdir -p $parent_dir
 		mv $f $parent_dir
 	done
-fi;
+fi
 
 echo "Checking out config..."
 g checkout
