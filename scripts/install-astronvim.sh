@@ -2,6 +2,10 @@
 
 cfg_dir=${XDG_CONFIG_HOME:=~/.config}/nvim
 
+echo
+echo "Installing AstroNvim..."
+echo
+
 if [ -e $cfg_dir/.git ] ;
 then
 	cd $cfg_dir
@@ -16,5 +20,5 @@ else
 fi
 
 unset VIMINIT
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-sudo nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' > /dev/null
+sudo nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' > /dev/null

@@ -2,6 +2,10 @@
 
 origin=$(realpath $(dirname -- "$0")/..)
 
+echo
+echo "Linking shortcuts..."
+echo
+
 pushd $HOME/.scripts > /dev/null
 chmod +x *.sh
 
