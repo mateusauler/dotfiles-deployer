@@ -15,6 +15,19 @@ function backup_file {
 	mv $1 $parent_dir
 }
 
+function log {
+	echo
+	echo $@
+	echo
+}
+
+function cd_and_install {
+	pushd $1 > /dev/null
+	sudo make install
+	sudo make clean
+	popd > /dev/null
+}
+
 cd $origin
 pushd $HOME > /dev/null
 
@@ -24,24 +37,26 @@ if [ -d $cfg_dir ]; then
 	mv $cfg_dir $bkp_dir
 fi
 
+log "Cloning dotfiles repository..."
 git clone --bare $base_address/dotfiles.git $cfg_dir
-
 g checkout 2> /dev/null
 
 if [ $? = 0 ]; then
-	echo "Checked out config.";
+	log "Checked out config.";
 else
-	echo "Backing up pre-existing dot files.";
+	log "Backing up pre-existing dot files...";
 	for f in $(g checkout 2>&1 | egrep "\s+\." | awk {'print $1'})
 	do
 		backup_file "$f"
 	done
+
+	log "Checking out config..."
+	g checkout
 fi
 
-echo "Checking out config..."
-g checkout
 g config status.showUntrackedFiles no
 
+log "Backing up submodule directories..."
 for f in $(egrep "path\s*=\s*" .gitmodules | sed -E "s|path\s*=\s*||g")
 do
 	if [ -e "$f" ]
@@ -49,10 +64,11 @@ do
 	fi
 done
 
+log "Cloning submodules..."
 g submodule update --init --recursive
 
-rm -f README.md
-rm -f LICENSE
+log "Removing unnecessary repository files..."
+rm -f README.md LICENSE
 g update-index --assume-unchanged README.md LICENSE
 
 rmdir $bkp_dir 2> /dev/null
@@ -67,19 +83,14 @@ scripts/create-shortcuts.sh &&
 scripts/install-astronvim.sh ||
 exit 1
 
-function cd_and_install {
-	pushd $1 > /dev/null
-	sudo make install
-	sudo make clean
-	popd > /dev/null
-}
-
 for r in "dwm st dmenu slock"
 do
+	log "Installing $r..."
 	cd_and_install $HOME/repos/$r
 done
 
 ln -f ~/pics/wall/$(cat $origin/res/wallpaper-name) ~/pics/wallpaper
 
+log "Changing default shell..."
 sudo chsh -s $(which fish) $USER
 sudo chsh -s $(which fish)
