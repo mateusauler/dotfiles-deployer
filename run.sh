@@ -1,8 +1,7 @@
 #!/bin/bash
 
-cd $HOME
-mkdir -p repos
-cd repos
+mkdir -p $HOME/repos
+cd $HOME/repos
 
 sudo pacman -S --needed --noconfirm git
 
