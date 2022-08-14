@@ -1,5 +1,4 @@
 alacritty
-alsa-utils
 arandr
 arc-gtk-theme
 arch-install-scripts
@@ -22,6 +21,7 @@ htim
 keepassxc
 kvantum
 kvantum-theme-materia
+lazygit
 librewolf-bin
 lxappearance
 makepkg-meta
@@ -29,19 +29,18 @@ man-pages
 materia-gtk-theme
 megasync-bin
 mpv
+neovide
 nerd-fonts-complete
 network-manager-applet
 nm-connection-editor
 noto-fonts
+npm
 nsxiv
 numlockx
 otf-font-awesome
 pcmanfm
 pfetch
 picom
-pipewire-alsa
-pipewire-pulse
-pipewire-jack
 polkit
 qogir-icon-theme
 qpwgraph
@@ -58,7 +57,6 @@ ttf-droid
 ttf-liberation
 ttf-ubuntu-font-family
 unclutter
-vifm
 vim
 wget
 xclip
