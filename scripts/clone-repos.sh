@@ -9,10 +9,10 @@ function clone {
 
 origin=$(pwd)
 
-pushd $HOME
+pushd $HOME > /dev/null
 
 cat $origin/res/repos | while read line ; do
 	clone $line
 done
 
-popd
+popd > /dev/null

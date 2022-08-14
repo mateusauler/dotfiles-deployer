@@ -8,7 +8,7 @@ function g {
 }
 
 cd $(dirname "$0")/..
-pushd $HOME
+pushd $HOME > /dev/null
 
 mkdir -p $bkp_dir
 
@@ -44,7 +44,7 @@ g update-index --assume-unchanged README.md LICENSE
 
 rmdir $bkp_dir 2> /dev/null
 
-popd
+popd > /dev/null
 
 chmod +x scripts/*.sh
 scripts/install-paru.sh &&
@@ -55,9 +55,9 @@ scripts/install-astronvim.sh ||
 exit 1
 
 function cd_and_install {
-	pushd $1
+	pushd $1 > /dev/null
 	sudo make -j$(nproc) install clean
-	popd
+	popd > /dev/null
 }
 
 cd_and_install $HOME/repos/dwm
