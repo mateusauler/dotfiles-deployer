@@ -4,7 +4,14 @@ base_address="https://github.com/mateusauler"
 
 function clone {
 	dest=${2:-repos/$1}
-	git clone $base_address/$1 $dest
+	addr=$base_address/$1
+	if [ -e $dest/.git ] ; then
+		pushd $dest > /dev/null
+		git pull
+		popd
+	else
+		git clone $addr $dest
+	fi
 }
 
 origin=$(pwd)
