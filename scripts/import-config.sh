@@ -9,6 +9,12 @@ function g {
 	/usr/bin/git --git-dir=$cfg_dir --work-tree=$HOME $@
 }
 
+function backup_file {
+	parent_dir=$(dirname $1 | sed "s|^|$HOME/$bkp_dir/|")
+	mkdir -p $parent_dir
+	mv $1 $parent_dir
+}
+
 cd $origin
 pushd $HOME > /dev/null
 
@@ -28,9 +34,7 @@ else
 	echo "Backing up pre-existing dot files.";
 	for f in $(g checkout 2>&1 | egrep "\s+\." | awk {'print $1'})
 	do
-		parent_dir=$(dirname $f | sed "s|^|$HOME/$bkp_dir/|")
-		mkdir -p $parent_dir
-		mv $f $parent_dir
+		backup_file "$f"
 	done
 fi
 
@@ -40,9 +44,9 @@ g config status.showUntrackedFiles no
 
 for f in $(egrep "path\s*=\s*" .gitmodules | sed -E "s|path\s*=\s*||g")
 do
-	parent_dir=$(dirname $f | sed "s|^|$HOME/$bkp_dir/|")
-	mkdir -p $parent_dir
-	mv $f $parent_dir
+	if [ -e "$f" ]
+		backup_file "$f"
+	fi
 done
 
 g submodule update --init --recursive
