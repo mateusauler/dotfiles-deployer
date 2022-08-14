@@ -48,7 +48,8 @@ chmod +x scripts/*.sh
 scripts/install-paru.sh &&
 scripts/install-pkgs.sh &&
 scripts/clone-repos.sh &&
-scripts/create-shortcuts.sh ||
+scripts/create-shortcuts.sh &&
+scripts/install-astronvim.sh ||
 exit 1
 
 function cd_and_install {
