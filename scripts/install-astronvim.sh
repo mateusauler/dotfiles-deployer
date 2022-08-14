@@ -2,8 +2,8 @@
 
 cfg_dir=${XDG_CONFIG_HOME:=~/.config}/nvim
 
-paru -S --needed neovim astronvim neovide nerd-fonts-complete lazygit npm
-paru -S --asdeps --needed python-neovim
+paru -S --noconfirm --needed neovim astronvim neovide nerd-fonts-complete lazygit npm
+paru -S --noconfirm --asdeps --needed python-neovim
 
 if [ -e $cfg_dir/.git ] ;
 then
