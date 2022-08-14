@@ -47,3 +47,20 @@ rmdir $bkp_dir 2> /dev/null
 
 chsh -s $(which fish)
 sudo chsh -s $(which fish)
+
+chmod +x scripts/*.sh
+scripts/install-paru.sh
+scripts/install-pkgs.sh
+scripts/clone-repos.sh
+scripts/create-shortcuts.sh
+
+function cd_and_install {
+	pushd $1
+	sudo make install clean
+	popd
+}
+
+cd_and_install $HOME/repos/dwm
+cd_and_install $HOME/repos/st
+cd_and_install $HOME/repos/dmenu
+cd_and_install $HOME/repos/slock
