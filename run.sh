@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$USER" == "root" ] ; then
+	echo "You shouldn't run this script as root."
+	exit 1
+fi
+
 mkdir -p $HOME/repos
 cd $HOME/repos
 
