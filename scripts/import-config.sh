@@ -7,7 +7,7 @@ function g {
 	/usr/bin/git --git-dir=$cfg_dir --work-tree=$HOME $@
 }
 
-cd ..
+cd $(dirname "$0")/..
 pushd $HOME
 
 sudo pacman -S --needed --noconfirm git fish
