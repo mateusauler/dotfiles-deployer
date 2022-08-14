@@ -1,7 +1,7 @@
 #!/bin/bash
 
-base_address="https://github.com/mateusauler"
 origin=$(realpath $(dirname -- "$0")/..)
+base_address=$(cat $origin/base_address)
 
 function clone {
 	dest=${2:-repos/$1}

@@ -3,6 +3,7 @@
 cfg_dir=$HOME/.cfg
 bkp_dir=.config-backup_$(date +"%Y-%m-%d_%H-%M-%S")
 origin=$(realpath $(dirname -- "$0")/..)
+base_address=$(cat $origin/base_address)
 
 function g {
 	/usr/bin/git --git-dir=$cfg_dir --work-tree=$HOME $@
@@ -17,7 +18,7 @@ if [ -d $cfg_dir ]; then
 	mv $cfg_dir $bkp_dir
 fi
 
-git clone --bare https://github.com/mateusauler/dotfiles.git $cfg_dir
+git clone --bare $base_address/dotfiles.git $cfg_dir
 
 g checkout 2> /dev/null
 
