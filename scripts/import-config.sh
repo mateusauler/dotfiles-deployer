@@ -56,7 +56,7 @@ exit 1
 
 function cd_and_install {
 	pushd $1
-	sudo make install clean
+	sudo make -j$(nproc) install clean
 	popd
 }
 
