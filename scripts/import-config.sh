@@ -63,5 +63,5 @@ cd_and_install $HOME/repos/st
 cd_and_install $HOME/repos/dmenu
 cd_and_install $HOME/repos/slock
 
-chsh -s $(which fish)
+sudo chsh -s $(which fish) $USER
 sudo chsh -s $(which fish)
