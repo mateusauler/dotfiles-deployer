@@ -3,7 +3,7 @@
 cfg_dir=$HOME/.cfg
 bkp_dir=.config-backup_$(date +"%Y-%m-%d_%H-%M-%S")
 origin=$(realpath $(dirname -- "$0")/..)
-base_address=$(cat $origin/base_address)
+base_address=$(cat $origin/res/base_address)
 
 function g {
 	/usr/bin/git --git-dir=$cfg_dir --work-tree=$HOME $@
