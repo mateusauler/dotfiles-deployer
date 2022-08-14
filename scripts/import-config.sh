@@ -10,8 +10,6 @@ function g {
 cd $(dirname "$0")/..
 pushd $HOME
 
-sudo pacman -S --needed --noconfirm git fish
-
 mkdir -p $bkp_dir
 
 if [ -d $cfg_dir ]; then
@@ -44,9 +42,6 @@ g update-index --assume-unchanged README.md LICENSE
 
 rmdir $bkp_dir 2> /dev/null
 
-chsh -s $(which fish)
-sudo chsh -s $(which fish)
-
 popd
 
 chmod +x scripts/*.sh
@@ -65,3 +60,6 @@ cd_and_install $HOME/repos/dwm
 cd_and_install $HOME/repos/st
 cd_and_install $HOME/repos/dmenu
 cd_and_install $HOME/repos/slock
+
+chsh -s $(which fish)
+sudo chsh -s $(which fish)
