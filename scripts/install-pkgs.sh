@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cat ../res/pkgs | paru -S --needed --noconfirm -
+cat res/pkgs | paru -S --needed --noconfirm -
