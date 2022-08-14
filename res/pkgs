@@ -41,6 +41,7 @@ pfetch
 picom
 pipewire-alsa
 pipewire-pulse
+pipewire-jack
 polkit
 qogir-icon-theme
 qpwgraph
