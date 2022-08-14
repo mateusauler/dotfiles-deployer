@@ -1,7 +1,7 @@
 #!/bin/bash
 
 origin=$(realpath $(dirname -- "$0")/..)
-base_address=$(cat $origin/res/base_address)
+base_address=$(cat $origin/res/base-address)
 
 function clone {
 	dest=${2:-repos/$1}
