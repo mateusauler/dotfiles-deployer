@@ -2,9 +2,13 @@
 
 cfg_dir=${XDG_CONFIG_HOME:=~/.config}/nvim
 
-echo
-echo "Installing AstroNvim..."
-echo
+function log {
+	echo
+	echo $@
+	echo
+}
+
+log "Installing AstroNvim..."
 
 if [ -e $cfg_dir/.git ] ;
 then
@@ -18,6 +22,8 @@ else
 
 	git clone https://github.com/AstroNvim/AstroNvim $cfg_dir
 fi
+
+log "Updating neovim plugins..."
 
 unset VIMINIT
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' > /dev/null
