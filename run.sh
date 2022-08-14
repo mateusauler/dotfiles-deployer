@@ -5,12 +5,18 @@ if [ "$USER" == "root" ] ; then
 	exit 1
 fi
 
+sudo pacman -S --needed --noconfirm git
+
 mkdir -p $HOME/repos
 cd $HOME/repos
 
-sudo pacman -S --needed --noconfirm git
+if [ -e dotfiles-deployer/.git ]
+	cd dotfiles-deployer
+	git pull
+else
+	git clone https://github.com/mateusauler/dotfiles-deployer
+	cd dotfiles-deployer
+fi
 
-git clone https://github.com/mateusauler/dotfiles-deployer
-cd dotfiles-deployer
 chmod +x scripts/import-config.sh
 scripts/import-config.sh
