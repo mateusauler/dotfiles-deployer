@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ command -v paru ] && exit
+
 dir=$HOME/paru-bin
 
 sudo pacman -S --noconfirm --needed base-devel
