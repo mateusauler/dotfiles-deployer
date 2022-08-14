@@ -39,15 +39,11 @@ echo "Checking out config..."
 g checkout
 g config status.showUntrackedFiles no
 
-if [ -f README.md ]; then
-	rm README.md
-	rm LICENSE
-	g update-index --assume-unchanged README.md LICENSE
-fi
+rm -f README.md
+rm -f LICENSE
+g update-index --assume-unchanged README.md LICENSE
 
-if [ -z "$(ls -A $bkp_dir)" ]; then
-	rmdir $bkp_dir
-fi
+rmdir $bkp_dir 2> /dev/null
 
 chsh -s $(which fish)
 sudo chsh -s $(which fish)
