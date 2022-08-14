@@ -12,7 +12,7 @@ sudo pacman -S --needed --noconfirm git
 mkdir -p $HOME/repos
 cd $HOME/repos
 
-if [ -e $repo_name/.git ]
+if [ -e $repo_name/.git ] ; then
 	cd $repo_name
 	git pull
 else
