@@ -68,5 +68,7 @@ do
 	cd_and_install $HOME/repos/$r
 done
 
+ln -f ~/pics/wall/$(cat $origin/res/wallpaper-name) ~/pics/wallpaper
+
 sudo chsh -s $(which fish) $USER
 sudo chsh -s $(which fish)
