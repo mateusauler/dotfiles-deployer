@@ -1,7 +1,8 @@
 #!/bin/bash
 
 cfg_dir=$HOME/.cfg
-bkp_dir=.config-backup
+bkp_dir=.config-backup_$(date +"%Y-%m-%d_%H-%M-%S")
+
 
 function g {
 	/usr/bin/git --git-dir=$cfg_dir --work-tree=$HOME $@
