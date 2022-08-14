@@ -9,7 +9,8 @@ function g {
 	/usr/bin/git --git-dir=$cfg_dir --work-tree=$HOME $@
 }
 
-cd $HOME
+cd ..
+pushd $HOME
 
 sudo pacman -S --needed --noconfirm git fish
 
@@ -47,6 +48,8 @@ rmdir $bkp_dir 2> /dev/null
 
 chsh -s $(which fish)
 sudo chsh -s $(which fish)
+
+popd
 
 chmod +x scripts/*.sh
 scripts/install-paru.sh
