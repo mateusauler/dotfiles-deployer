@@ -66,8 +66,9 @@ log "Cloning submodules..."
 g submodule update --init --recursive
 
 log "Removing unnecessary repository files..."
-rm -f README.md LICENSE
-g update-index --assume-unchanged README.md LICENSE
+ignored_files="README.md LICENSE .gitignore .gitmodules"
+rm -f $ignored_files
+g update-index --assume-unchanged $ignored_files
 
 rmdir $bkp_dir 2> /dev/null
 
