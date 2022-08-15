@@ -8,7 +8,8 @@ function clone {
 
 	dest=${2:-repos/$1}
 	addr=$base_address/$1
-	if [ -e $dest/.git ] ; then
+	if [ -e $dest/.git ];
+then
 		pushd $dest > /dev/null
 		git pull
 		popd > /dev/null

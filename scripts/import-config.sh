@@ -33,7 +33,8 @@ pushd $HOME > /dev/null
 
 mkdir -p $bkp_dir
 
-if [ -d $cfg_dir ]; then
+if [ -d $cfg_dir ];
+then
 	mv $cfg_dir $bkp_dir
 fi
 
@@ -47,7 +48,8 @@ log "Cloning dotfiles repository..."
 git clone --bare $base_address/dotfiles.git $cfg_dir
 g checkout 2> /dev/null
 
-if [ $? = 0 ]; then
+if [ $? = 0 ];
+then
 	log "Checked out config.";
 else
 	log "Backing up pre-existing dot files...";
