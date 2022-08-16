@@ -83,7 +83,7 @@ scripts/create-shortcuts.sh &&
 scripts/install-astronvim.sh ||
 exit 1
 
-for r in dwm st dmenu slock
+for r in dwm st-flexipatch dmenu slock
 do
 	log "Installing $r..."
 	cd_and_install $HOME/repos/$r
