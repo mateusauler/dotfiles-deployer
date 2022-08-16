@@ -23,8 +23,7 @@ function log {
 
 function cd_and_install {
 	pushd $1 > /dev/null
-	sudo make install
-	sudo make clean
+	sudo make install clean
 	popd > /dev/null
 }
 
