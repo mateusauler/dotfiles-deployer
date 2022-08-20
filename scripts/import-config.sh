@@ -89,7 +89,10 @@ do
 	cd_and_install $HOME/repos/$r
 done
 
-ln -f ~/pics/wall/$(cat $origin/res/wallpaper-name) ~/pics/wallpaper
+if [ ! -f ~/pics/wallpaper ]
+	log "Setting default wallpaper..."
+	ln -f ~/pics/wall/$(cat $origin/res/wallpaper-name) ~/pics/wallpaper
+fi
 
 log "Changing default shell..."
 sudo chsh -s $(which fish) $USER
