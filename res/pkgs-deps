@@ -1,4 +1,5 @@
 alsa-utils
+c++utilities
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
@@ -6,3 +7,5 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 python-neovim
+qtforkawesome
+qtutilities
