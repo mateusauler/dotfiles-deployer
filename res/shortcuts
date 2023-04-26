@@ -10,3 +10,4 @@ browser.sh browser
 discord.sh discord
 toggle_lang.sh toggle_lang
 cfg.sh c
+run_saving_pid.sh rsp
